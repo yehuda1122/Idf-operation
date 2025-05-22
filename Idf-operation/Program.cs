@@ -10,6 +10,8 @@ namespace Idf_operation
     {
         static void Main(string[] args)
         {
+            intelligence tarorist1  = new intelligence();
+            tarorist1.Terorist1.Add(new Terrorist("mmm", 6, true, "gfht"));
         }
     }
 }
