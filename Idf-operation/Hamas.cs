@@ -89,5 +89,15 @@ namespace Idf_operation
     //    }
     //}
 
-    
+
+    //}
+
+    //internal class Hamas : Organization
+    //{
+    //    string DateOfEstablishment = "10.12.1987";
+    //    string CurrentCensus = "Raed Saad";
+    //    private List<Terrorist> listOfTerrorist = new List<Terrorist>();
+
+
+    }
 }
