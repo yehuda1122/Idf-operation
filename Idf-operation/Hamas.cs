@@ -39,38 +39,55 @@ namespace Idf_operation
     //    string CurrentCensus = "Raed Saad";
     //    private List<Terrorist> listOfTerrorist = new List<Terrorist>();
 
-    internal class Hamas
-    {
-        private List<Terrorist> _terrorists;
 
-        public Hamas()
-        {
-            _terrorists = new List<Terrorist>();
-        }
 
-        public void addTerrorist(Terrorist t)
-        {
-            _terrorists.Add(t);
-        }
 
-        public List<Terrorist> getTerrorists()
-        {
-            return _terrorists;
-        }
 
-        public void setTerrorists(List<Terrorist> list)
-        {
-            _terrorists = list;
-        }
 
-        public void printTerrorists()
-        {
-            foreach (Terrorist t in _terrorists)
-            {
-                Console.WriteLine(t.printTerrorist());
-            }
-        }
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+    //internal class Hamas
+    //{
+    //    private List<Terrorist> _terrorists;
+
+    //    public Hamas()
+    //    {
+    //        _terrorists = new List<Terrorist>();
+    //    }
+
+    //    public void addTerrorist(Terrorist t)
+    //    {
+    //        _terrorists.Add(t);
+    //    }
+
+    //    public List<Terrorist> getTerrorists()
+    //    {
+    //        return _terrorists;
+    //    }
+
+    //    public void setTerrorists(List<Terrorist> list)
+    //    {
+    //        _terrorists = list;
+    //    }
+
+    //    public void printTerrorists()
+    //    {
+    //        foreach (Terrorist t in _terrorists)
+    //        {
+    //            Console.WriteLine(t.printTerrorist());
+    //        }
+    //    }
+    //}
 
     
 }

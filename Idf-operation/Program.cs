@@ -10,11 +10,29 @@ namespace Idf_operation
     {
         static void Main(string[] args)
         {
-            Terrorist aa = new Terrorist("mohamad","gaza");
-            Console.WriteLine(aa.printTerrorist());
+           
+            List<Terrorist> terrorists = CreateTerrorists(5); 
 
+            
+            Console.WriteLine("list of terrorist:\n");
+            foreach (var terrorist in terrorists)
+            {
+                Console.WriteLine(terrorist);
+            }
+        }
 
+       
+        public static List<Terrorist> CreateTerrorists(int count)
+        {
+            List<Terrorist> terrorists = new List<Terrorist>();
 
+            for (int i = 0; i < count; i++)
+            {
+                Terrorist t = new Terrorist();
+                terrorists.Add(t);
+            }
+
+            return terrorists;
         }
     }
 }

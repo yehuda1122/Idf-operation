@@ -3,135 +3,68 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Idf_operation
 {
     internal class Terrorist
     {
-        protected string _name;
-        private int _rank;
-        private string _status;
-        private string _wepon;
-        private string _wepon2;
-        private string _wepon3;
-        private string _location;
-        private int _dangerLavel;
+
+        public string Name { get; set; }
+        public int Rank { get; set; }
+        public string Status { get; set; }
+        public List<string> Weapons { get; private set; }
+        public string Location { get; set; }
+       
+        public int DangerLevel = 0;
+
+
+
+        public Terrorist()
+        {
+            Name = _namePool[_random.Next(_namePool.Count)];
+            Location = _locationPool[_random.Next(_locationPool.Count)];
+            Rank = _random.Next(1, 6);
+            Status = "Going to die soon";
+            AssignRandomWeapons();
+        }
+
         private static Random _random = new Random();
 
-        public Terrorist(string name, string location)
+        private static List<string> _namePool = new List<string>
         {
-            _name = name;
-            _rank = _random.Next(1, 6);
-            _status = "Going to die soon";
-            _location = location;
-            assignRandomWeapons();
-        }
-
-        public void assignRandomWeapons()
-        {
-            List<string> _weaponPool = new List<string>
-        {
-            "AKM", "GUN", "Knife"
+            "Ali", "Omar", "Sami", "Yousef", "Hassan",
+            "Khaled", "Mahmoud", "Tariq", "Fadi", "Ziad"
         };
 
-            List<string> shuffledWeapons = new List<string>(_weaponPool);
 
-            for (int i = 0; i < shuffledWeapons.Count; i++)
-            {
-                int j = _random.Next(i, shuffledWeapons.Count);
-                string temp = shuffledWeapons[i];
-                shuffledWeapons[i] = shuffledWeapons[j];
-                shuffledWeapons[j] = temp;
-            }
+        private void AssignRandomWeapons()
+        {
+            List<string> weaponPool = new List<string> { "AKM", "Gun", "Knife" };
 
-            _wepon = shuffledWeapons[0];
-            _wepon2 = (_random.NextDouble() < 0.5) ? shuffledWeapons[1] : "";
-            _wepon3 = (_random.NextDouble() < 0.5) ? shuffledWeapons[2] : "";
+
+            weaponPool = weaponPool.OrderBy(w => _random.Next()).ToList();
+
+            Weapons = new List<string>();
+            Weapons.Add(weaponPool[0]);
+
+
+            if (_random.NextDouble() < 0.5)
+                Weapons.Add(weaponPool[1]);
+
+
+            if (_random.NextDouble() < 0.5)
+                Weapons.Add(weaponPool[2]);
         }
 
-        public string getname()
+        private static List<string> _locationPool = new List<string>
         {
-            return _name;
-        }
+            "home", "car", "outside"
+        };
 
-        public void setname(string name)
+        public override string ToString()
         {
-            _name = name;
-        }
-
-        public int getrank()
-        {
-            return _rank;
-        }
-
-        public void setrank(int rank)
-        {
-            _rank = rank;
-        }
-
-        public string getstatus()
-        {
-            return _status;
-        }
-
-        //public void setstatus(bool status)
-        //{
-        //    _status = status;
-        //}
-
-        public string getwepon()
-        {
-            return _wepon;
-        }
-
-        public void setwepon(string wepon)
-        {
-            _wepon = wepon;
-        }
-
-        public string getwepon2()
-        {
-            return _wepon2;
-        }
-
-        public void setwepon2(string wepon2)
-        {
-            _wepon2 = wepon2;
-        }
-
-        public string getwepon3()
-        {
-            return _wepon3;
-        }
-
-        public void setwepon3(string wepon3)
-        {
-            _wepon3 = wepon3;
-        }
-
-        public string getlocation()
-        {
-            return _location;
-        }
-
-        public void setlocation(string location)
-        {
-            _location = location;
-        }
-
-        public int getdangerLavel()
-        {
-            return _dangerLavel;
-        }
-        public void setdangerLavel(int dangerLavel)
-        {
-            _dangerLavel = dangerLavel;
-        }
-
-        public string printTerrorist()
-        {
-            return $" {getname()} , {getrank()}, {getstatus()}, {getwepon()},{getwepon2()},{getwepon3()},{getlocation()} ";
-
+            return $"Name: {Name}, Rank: {Rank}, Status: {Status}, Weapons: {string.Join(", ", Weapons)}, Location: {Location}, DangerLevel: {DangerLevel}";
         }
     }
 
