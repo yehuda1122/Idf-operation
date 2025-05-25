@@ -10,10 +10,15 @@ namespace Idf_operation
     {
         static void Main(string[] args)
         {
+
             Terrorist aa = new Terrorist("mohamad","gaza");
             Console.WriteLine(aa.printTerrorist());
 
 
+
+
+            intelligence tarorist1  = new intelligence();
+            tarorist1.Terorist1.Add(new Terrorist("mmm", 6, true, "gfht"));
 
         }
     }

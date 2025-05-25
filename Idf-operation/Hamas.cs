@@ -58,10 +58,21 @@ namespace Idf_operation
             return _terrorists;
         }
 
+    //    public void AddTerrorist(Terrorist t)
+    //    {
+    //        _listOfTerrorist.Add(t);
+    //    }
+
+    //    public string GetName() => _name;
+    //    public DateTime GetDateOfEstablishment() => _dateOfEstablishment;
+    //    public string GetCurrentCensus() => _currentCensus;
+
+
         public void setTerrorists(List<Terrorist> list)
         {
             _terrorists = list;
         }
+
 
         public void printTerrorists()
         {
@@ -72,5 +83,15 @@ namespace Idf_operation
         }
     }
 
-    
+
+    //}
+
+    //internal class Hamas : Organization
+    //{
+    //    string DateOfEstablishment = "10.12.1987";
+    //    string CurrentCensus = "Raed Saad";
+    //    private List<Terrorist> listOfTerrorist = new List<Terrorist>();
+
+
+    }
 }
