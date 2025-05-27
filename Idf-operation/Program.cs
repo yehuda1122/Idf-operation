@@ -1,25 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Idf_operation
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
+            // שלב 1: יצירת רשימה של טרוריסטים
+            List<Terrorist> terrorists = new List<Terrorist>
+            {
+                new Terrorist(),
+                new Terrorist(),
+                new Terrorist()
+            };
 
-            Terrorist aa = new Terrorist("mohamad","gaza");
-            Console.WriteLine(aa.printTerrorist());
+            // שלב 2: חישוב סיכון
+            intelligence intel = new intelligence(terrorists);
+            intel.RiskAssessment();
 
+            // שלב 3: יצירת רשימה של אפשרויות תקיפה
+            List<IAttackOptions> attackOptions = new List<IAttackOptions>
+            {
+                new F16(),
+                new Zik(),
+                new Artillery()
+            };
 
+            // שלב 4: יצירת AttackManager והפעלת תקיפה
+            AttackManager attackManager = new AttackManager(terrorists, attackOptions);
+            attackManager.ExecuteAttacks();
+       
 
-
-            intelligence tarorist1  = new intelligence();
-            tarorist1.Terorist1.Add(new Terrorist("mmm", 6, true, "gfht"));
-
+            // הדפסת מצב אפשרויות התקיפה אחרי ההתקפה
+            foreach (var a in attackOptions)
+            {
+                Console.WriteLine($"{a.AttackName}: {a.AmountOfAttacks} attacks remaining, {a.AmountOfFuel} fuel remaining");
+                Console.ReadKey();
+            }
         }
     }
 }

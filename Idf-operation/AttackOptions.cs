@@ -10,36 +10,23 @@ namespace Idf_operation
 {
     public interface IAttackOptions
     {
-       
-        string AttackName { get; }
-        //public string getAttackname()
-        //{
-        //    return AttackName;
-        //}
-        //public void setAttackName(string attackName)
-        //{ AttackName  = attackName; }
 
-        int AmountOfAttacks { get; }
-        //public int getamountOfAttacks()
-        //    { return AmountOfAttacks; }
-        //public void setAmountOfAttacks(int amountOfAttacks)
-        //    { AmountOfAttacks = amountOfAttacks; }
-        float AmountOfFuel { get; }
-        //public float getamountOfFuel()
-        //    { return AmountOfFuel; }
-        //public void setAmountOfFuel(float amountOfFul)
-        //{ AmountOfFuel = amountOfFul; }
+        string AttackName { get; }
+        int AmountOfAttacks { get; set; }
+        float AmountOfFuel { get; set; }
         List<string> TypeOfTarget { get; }
+
+        string BoomType { get; }
     }
 
     class F16 : IAttackOptions
     {
         public string AttackName => "F16";
-        public int AmountOfAttacks => 8;
-        public float AmountOfFuel => 50;
-        public List<string> TypeOfTarget => new List<string> { "building" };
+        public int AmountOfAttacks { set; get; } = 8;
+        public float AmountOfFuel { set; get; } = 50;
+        public List<string> TypeOfTarget => new List<string> { "home" };
 
-        private string BoomType = "0.5 ton or 1 ton";
+        public string BoomType => "0.5 ton or 1 ton";
     }
 
 
@@ -47,20 +34,21 @@ namespace Idf_operation
     class Zik : IAttackOptions
     {
         public string AttackName => "zik";
-        public int AmountOfAttacks => 3;
-        public float AmountOfFuel => 25;
-        public List<string> TypeOfTarget => new List<string> { "vehicle", "uhumen" };
+        public int AmountOfAttacks { set; get; } = 3;
+        public float AmountOfFuel { set; get; } = 25;
+        public List<string> TypeOfTarget => new List<string> { "car", "uhumen" };
 
+        public string BoomType => "small roket";
 
     }
     class Artillery : IAttackOptions
     {
         public string AttackName => "Artillery";
-        public int AmountOfAttacks => 40;
-        public float AmountOfFuel => 30;
-        public List<string> TypeOfTarget => new List<string> { "open space" };
+        public int AmountOfAttacks { set; get; } = 40;
+        public float AmountOfFuel { set; get; } = 30;
+        public List<string> TypeOfTarget => new List<string> { "outside" };
 
-        private string BoomType = "Explosive shells";
+        public string BoomType => "Explosive shells";
     }
     class idf
     {

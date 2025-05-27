@@ -11,36 +11,37 @@ namespace Idf_operation
         public int Score { get; set; }
 
         public int QualityScore {  get; set; }
-        public List<Terrorist> Terorist1 { get; set; }
 
         private List<string> leastLocation = new List<string> { "home", "car", "outside" };
 
-        public List<Terrorist> _terrorists;
+        public List<Terrorist> Terrorists { get; set; }
 
         public intelligence(List<Terrorist> terrorists)
         {
-            Terorist1 = terrorists;
+            Terrorists = terrorists;
         }
-        public void ExecuteAttacks()
+        public void RiskAssessment()
         {
-            foreach (var terorist in _terrorists)
+            foreach (var terorist in Terrorists)
+
             {
-                if (terorist.getwepon() == "GUN")
+                if (terorist.Weapons.Contains("GUN"))
                 {
                     Score += 2;
                 }
-                else if (terorist.getwepon() == "AKM")
+                else if (terorist.Weapons.Contains ("AKM"))
                 {
                     Score += 3;
                 }
-                else if (terorist.getwepon() == "knife")
+                else if (terorist.Weapons.Contains( "knife"))
                 {
                     Score += 1;
                 }
-                QualityScore = Score * terorist.getrank();
-
+                QualityScore = Score * terorist.Rank;
+                terorist.DangerLevel = QualityScore;
             }
             
+
         }
     }
 }
